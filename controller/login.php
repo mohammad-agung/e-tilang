@@ -24,10 +24,11 @@ if (isset($_POST['login'])) {
 
                 $_SESSION['login'] = $namauser;
                 $_SESSION['level'] = $level;
-
+                $_SESSION['session'] = $username;
                 if ($level == 'admin') {
                     echo "<script>document.location = '../page/admin/'</script>";
                 } else if ($level == 'user') {
+                    $_SESSION['kesatuan'] = $num['nama_kesatuan'];
                     echo "<script>document.location = '../page/user/'</script>";
                 } else {
                     echo "<script>alert('Gagal login');
