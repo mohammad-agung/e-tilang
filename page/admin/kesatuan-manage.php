@@ -69,13 +69,13 @@ if ($_SESSION['level'] == 'user') {
                                                                 <td class="process">Active</td>
                                                                 <td>
                                                                     <div class="table-data-feature">
-                                                                        <a href="" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                        <a href="kesatuan-edit?id=<?= $row['id_kesatuan'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                                                 <i class="zmdi zmdi-edit"></i>
                                                                             </button></a>
-                                                                        <a href="" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                        <a href="kesatuan-delete?id=<?= $row['id_kesatuan'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                                                 <i class="zmdi zmdi-delete"></i>
                                                                             </button></a>
-                                                                        <a href="" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Disactived">
+                                                                        <a href="kesatuan-disactived?id=<?= $row['id_kesatuan'] ?>"" class=" mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Disactived">
                                                                                 <i class="zmdi zmdi-power"></i>
                                                                             </button></a>
                                                                     </div>
@@ -84,13 +84,13 @@ if ($_SESSION['level'] == 'user') {
                                                                 <td class="denied">Not Actived</td>
                                                                 <td>
                                                                     <div class="table-data-feature">
-                                                                        <a href="" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                        <a href="kesatuan-edit?id=<?= $row['id_kesatuan'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                                                 <i class="zmdi zmdi-edit"></i>
                                                                             </button></a>
-                                                                        <a href="" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                        <a href="kesatuan-delete?id=<?= $row['id_kesatuan'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                                                 <i class="zmdi zmdi-delete"></i>
                                                                             </button></a>
-                                                                        <a href="" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Actived">
+                                                                        <a href="kesatuan-actived?id=<?= $row['id_kesatuan'] ?>"" class=" mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Actived">
                                                                                 <i class="zmdi zmdi-power"></i>
                                                                             </button></a>
                                                                     </div>

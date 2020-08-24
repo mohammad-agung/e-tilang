@@ -4,7 +4,7 @@ if ($_SESSION['level'] == 'user') {
     header('Location: ../../page/user/dashboard');
     exit;
 } else if ($_SESSION['level'] == 'admin') {
-    include '../../model/admin/function.php';
+    include '../../model/admin/function_kesatuan.php';
     if (isset($_POST["submit"])) {
 
         //cek imk
