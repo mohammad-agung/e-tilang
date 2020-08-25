@@ -16,10 +16,10 @@
                         <i class="fas fa-database"></i>Jenis Kendaraan</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="login.html">Tambah Data</a>
+                            <a href="kendaraan-add">Tambah Data</a>
                         </li>
                         <li>
-                            <a href="register.html">Lihat Data</a>
+                            <a href="kendaraan-manage">Lihat Data</a>
                         </li>
                     </ul>
                 </li>

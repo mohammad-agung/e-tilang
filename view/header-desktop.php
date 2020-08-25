@@ -22,7 +22,11 @@
                                         <h5 class="name">
                                             <a href="#"><?= $_SESSION['login']; ?></a>
                                         </h5>
-                                        <span class="email"><?= $_SESSION['session']; ?></span>
+                                        <?php if ($_SESSION['level'] == 'user') { ?>
+                                            <span class="email"><?= $_SESSION['kesatuan']; ?></span>
+                                        <?php } else if ($_SESSION['level'] == 'admin') { ?>
+                                            <span class="email"><?= $_SESSION['session']; ?></span>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="account-dropdown__body">
