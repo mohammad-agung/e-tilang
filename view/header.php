@@ -27,5 +27,8 @@
     <!-- Main CSS-->
     <link href="../../assets/admin/css/theme.css" rel="stylesheet" media="all">
 
+    <!-- Jquery JS-->
+    <script src="../../assets/admin/vendor/jquery-3.2.1.min.js"></script>
+
     <!-- my style -->
     <link rel="stylesheet" href="../../assets/admin/css/style.css">

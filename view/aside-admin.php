@@ -40,10 +40,10 @@
                         <i class="fas fa-user"></i>User</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="login.html">Tambah User</a>
+                            <a href="user-add">Tambah User</a>
                         </li>
                         <li>
-                            <a href="register.html">Lihat User</a>
+                            <a href="user-manage">Lihat User</a>
                         </li>
                     </ul>
                 </li>

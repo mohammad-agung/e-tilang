@@ -38,67 +38,59 @@ if ($_SESSION['level'] == 'user') {
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Nama Kesatuan</th>
-                                                    <th>Alamat Kesatuan</th>
-                                                    <th>User</th>
+                                                    <th>Nama User</th>
+                                                    <th>Username</th>
+                                                    <th>Kesatuan</th>
                                                     <th>Status</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $query = mysqli_query($conn, "SELECT * from tbl_kesatuan");
-                                                $row_count = mysqli_num_rows($query);
-                                                $number = 1;
-                                                if ($row_count == 0) {
+                                                $queryUser = mysqli_query($conn, "SELECT * from tbl_user where level='user' ORDER BY nama_kesatuan");
+                                                $row_count_user = mysqli_num_rows($queryUser);
+                                                $numberUser = 1;
+                                                if ($row_count_user == 0) {
                                                 ?>
                                                     <tr>
                                                         <td colspan="5">
-                                                            <h3 style="color:red;text-align:center">No record found</h3>
+                                                            <h3 style="color:red;text-align:center">No user found</h3>
                                                         </td>
                                                     </tr>
                                                     <?php
                                                 } else {
-                                                    while ($row = mysqli_fetch_array($query)) {
-                                                        $nama_kesatuan = htmlentities($row['nama_kesatuan']);
-                                                    ?>
+                                                    while ($rowUser = mysqli_fetch_array($queryUser)) { ?>
                                                         <tr>
-                                                            <td><?= $number++; ?></td>
-                                                            <td><?= $nama_kesatuan; ?></td>
-                                                            <td><?= htmlentities($row['alamat']); ?></td>
-                                                            <td>
-                                                                <?php
-                                                                $query_user = mysqli_query($conn, "SELECT * from tbl_user where nama_kesatuan='$nama_kesatuan'");
-                                                                $row_count_user = mysqli_num_rows($query_user);
-                                                                echo $row_count_user;
-                                                                ?>
-                                                            </td>
-                                                            <?php if ($row['status'] == 1) { ?>
+                                                            <td><?= $numberUser++; ?></td>
+                                                            <td><?= htmlentities($rowUser['nama_user']); ?></td>
+                                                            <td><?= htmlentities($rowUser['username']); ?></td>
+                                                            <td><?= htmlentities($rowUser['nama_kesatuan']); ?></td>
+                                                            <?php if ($rowUser['status'] == 1) { ?>
                                                                 <td class="process">Active</td>
                                                                 <td>
                                                                     <div class="table-data-feature">
-                                                                        <a href="kesatuan-edit?id=<?= $row['id_kesatuan'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                        <a href="user-edit?id=<?= $rowUser['id_user'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                                                 <i class="zmdi zmdi-edit"></i>
                                                                             </button></a>
-                                                                        <a href="kesatuan-delete?id=<?= $row['id_kesatuan'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                        <a href="user-delete?id=<?= $rowUser['id_user'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                                                 <i class="zmdi zmdi-delete"></i>
                                                                             </button></a>
-                                                                        <a href="kesatuan-disactived?id=<?= $row['id_kesatuan'] ?>"" class=" mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Disactived">
+                                                                        <a href="user-disactived?id=<?= $rowUser['id_user'] ?>"" class=" mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Disactived">
                                                                                 <i class="zmdi zmdi-power"></i>
                                                                             </button></a>
                                                                     </div>
                                                                 </td>
-                                                            <?php } else if ($row['status'] == 2) { ?>
+                                                            <?php } else if ($rowUser['status'] == 2) { ?>
                                                                 <td class="denied">Not Actived</td>
                                                                 <td>
                                                                     <div class="table-data-feature">
-                                                                        <a href="kesatuan-edit?id=<?= $row['id_kesatuan'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                        <a href="user-edit?id=<?= $rowUser['id_user'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                                                 <i class="zmdi zmdi-edit"></i>
                                                                             </button></a>
-                                                                        <a href="kesatuan-delete?id=<?= $row['id_kesatuan'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                        <a href="user-delete?id=<?= $rowUser['id_user'] ?>" class="mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                                                 <i class="zmdi zmdi-delete"></i>
                                                                             </button></a>
-                                                                        <a href="kesatuan-actived?id=<?= $row['id_kesatuan'] ?>"" class=" mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Actived">
+                                                                        <a href="user-actived?id=<?= $rowUser['id_user'] ?>"" class=" mr-1"><button class="item" data-toggle="tooltip" data-placement="top" title="Actived">
                                                                                 <i class="zmdi zmdi-power"></i>
                                                                             </button></a>
                                                                     </div>

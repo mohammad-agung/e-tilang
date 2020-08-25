@@ -21,7 +21,11 @@ function tambah($data)
     $alamat_kesatuan = htmlspecialchars($data["alamatKesatuan"]);
     $status = htmlspecialchars($data["status"]);
 
-    $query = "INSERT INTO tbl_kesatuan VALUES('', '$nama_kesatuan', '$alamat_kesatuan', '', '$status')";
+    if ($status == 0) {
+        $status = 2;
+    }
+
+    $query = "INSERT INTO tbl_kesatuan VALUES('', '$nama_kesatuan', '$alamat_kesatuan','$status')";
 
     mysqli_query($conn, $query);
 
@@ -49,7 +53,6 @@ function ubah($data)
     return mysqli_affected_rows($conn);
 }
 
-
 function hapus($id)
 {
     global $conn;
@@ -60,7 +63,7 @@ function hapus($id)
 function disactived($id)
 {
     global $conn;
-    mysqli_query($conn, "UPDATE tbl_kesatuan set status=0 where id_kesatuan='$id'");
+    mysqli_query($conn, "UPDATE tbl_kesatuan set status=2 where id_kesatuan='$id'");
     return mysqli_affected_rows($conn);
 }
 

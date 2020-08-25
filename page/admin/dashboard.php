@@ -69,8 +69,8 @@ if ($_SESSION['level'] == 'user') {
                                                     <i class="zmdi zmdi-folder-person"></i>
                                                 </div>
                                                 <div class="text">
-                                                    <?php $query = mysqli_query($conn, "SELECT * from tbl_kesatuan where status=1");
-                                                    $count_kesatuan = mysqli_num_rows($query);
+                                                    <?php $query_kesatuan = mysqli_query($conn, "SELECT * from tbl_kesatuan where status=1");
+                                                    $count_kesatuan = mysqli_num_rows($query_kesatuan);
                                                     ?>
                                                     <h2><?= htmlentities($count_kesatuan); ?></h2>
                                                     <span>Jumlah Kesatuan</span>
@@ -87,7 +87,10 @@ if ($_SESSION['level'] == 'user') {
                                                     <i class="zmdi zmdi-account-circle"></i>
                                                 </div>
                                                 <div class="text">
-                                                    <h2>$1,060,386</h2>
+                                                    <?php $query_user = mysqli_query($conn, "SELECT * from tbl_user where level='user'");
+                                                    $count_user = mysqli_num_rows($query_user);
+                                                    ?>
+                                                    <h2><?= htmlentities($count_user); ?></h2>
                                                     <span>Jumlah User</span>
                                                 </div>
                                             </div>
