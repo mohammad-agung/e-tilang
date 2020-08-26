@@ -65,9 +65,9 @@ if ($_SESSION['level'] == 'admin') {
                                                             <td><?= $number++; ?></td>
                                                             <td><?= htmlspecialchars($row['nama_user']); ?></td>
                                                             <td><?= htmlentities($row['username']); ?></td>
-                                                            <?php if ($rowUser['status'] == 1) { ?>
+                                                            <?php if ($row['status'] == 1) { ?>
                                                                 <td class="process">Active</td>
-                                                            <?php } else if ($rowUser['status'] == 2) { ?>
+                                                            <?php } else if ($row['status'] == 2) { ?>
                                                                 <td class="denied">Not Actived</td>
                                                             <?php } ?>
                                                             <td><?= $kesatuan; ?></td>
