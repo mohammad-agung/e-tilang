@@ -28,10 +28,10 @@
                         <i class="fas fa-database"></i>Jenis Pelanggaran R2/R4</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="login.html">Tambah Data</a>
+                            <a href="#">Tambah Data</a>
                         </li>
                         <li>
-                            <a href="register.html">Lihat Data</a>
+                            <a href="#">Lihat Data</a>
                         </li>
                     </ul>
                 </li>
@@ -40,10 +40,10 @@
                         <i class="fas fa-chart-bar"></i>Data Pelanggaran</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="login.html">Laporan Tabel</a>
+                            <a href="#">Laporan Tabel</a>
                         </li>
                         <li>
-                            <a href="register.html">Laporan Grafik</a>
+                            <a href="#">Laporan Grafik</a>
                         </li>
                     </ul>
                 </li>
@@ -52,10 +52,7 @@
                         <i class="fas fa-user"></i>User</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="login.html">Tambah User</a>
-                        </li>
-                        <li>
-                            <a href="register.html">Lihat User</a>
+                            <a href="user-view">Lihat User</a>
                         </li>
                     </ul>
                 </li>
