@@ -28,10 +28,10 @@
                         <i class="fas fa-database"></i>Jenis Pelanggaran</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="#">Tambah Data</a>
+                            <a href="pelanggaran-add">Tambah Data</a>
                         </li>
                         <li>
-                            <a href="#">Lihat Data</a>
+                            <a href="pelanggaran-manage">Lihat Data</a>
                         </li>
                     </ul>
                 </li>
