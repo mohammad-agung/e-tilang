@@ -16,10 +16,10 @@
                         <i class="fas fa-chart-bar"></i>Data Pelanggaran</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="login.html">Laporan Tabel</a>
+                            <a href="#">Laporan Tabel</a>
                         </li>
                         <li>
-                            <a href="register.html">Laporan Grafik</a>
+                            <a href="#">Laporan Grafik</a>
                         </li>
                     </ul>
                 </li>

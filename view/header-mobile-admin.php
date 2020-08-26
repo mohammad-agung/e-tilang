@@ -25,10 +25,10 @@
                         <i class="fas fa-chart-bar"></i>Data Pelanggaran</a>
                     <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                         <li>
-                            <a href="login.html">Laporan Tabel</a>
+                            <a href="#">Laporan Tabel</a>
                         </li>
                         <li>
-                            <a href="register.html">Laporan Grafik</a>
+                            <a href="#">Laporan Grafik</a>
                         </li>
                     </ul>
                 </li>
@@ -37,10 +37,10 @@
                         <i class="fas fa-database"></i>Kesatuan</a>
                     <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                         <li>
-                            <a href="login.html">Tambah Kesatuan</a>
+                            <a href="kesatuan-add">Tambah Kesatuan</a>
                         </li>
                         <li>
-                            <a href="register.html">Lihat Data Kesatuan</a>
+                            <a href="kesatuan-manage">Lihat Data Kesatuan</a>
                         </li>
                     </ul>
                 </li>
@@ -49,10 +49,10 @@
                         <i class="fas fa-database"></i>User</a>
                     <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                         <li>
-                            <a href="login.html">Tambah User</a>
+                            <a href="user-add">Tambah User</a>
                         </li>
                         <li>
-                            <a href="register.html">Lihat User</a>
+                            <a href="user-manage">Lihat User</a>
                         </li>
                     </ul>
                 </li>
