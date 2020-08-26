@@ -12,13 +12,13 @@ if ($_SESSION['level'] == 'admin') {
             echo "
         <script>
             alert('Data berhasil ditambahkan');
-            document.location.href = 'kendaraan-add';
+            document.location.href = 'pelanggaran-add';
         </script>";
         } else {
             echo "
         <script>
             alert('Data Gagal ditambahkan');
-            document.location.href = 'kendaraan-add';
+            document.location.href = 'pelanggaran-add';
         </script>";
         }
     }
