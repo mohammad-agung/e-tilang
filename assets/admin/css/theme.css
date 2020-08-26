@@ -1235,6 +1235,10 @@ section {
     .logo {
         text-align: center;
     }
+
+    .logo img {
+        height: 72px;
+    }
 }
 
 .header-wrap {
@@ -3192,7 +3196,7 @@ section {
 
 .overview-box .icon {
     display: block;
-    vertical-align: top;
+    /* vertical-align: top; */
     margin-right: 15px;
 }
 
