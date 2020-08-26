@@ -40,10 +40,10 @@
                         <i class="fas fa-chart-bar"></i>Data Pelanggaran</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="#">Tambah Data</a>
+                            <a href="#">Laporan Tabel</a>
                         </li>
                         <li>
-                            <a href="#">Laporan Data</a>
+                            <a href="#">Laporan Grafik</a>
                         </li>
                     </ul>
                 </li>
