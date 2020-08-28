@@ -2,7 +2,7 @@
 $serverName = 'localhost';
 $username = 'root';
 $password = '';
-$dbName = 'e-tilang';
+$dbName = 'skripsi-etilang';
 
 $conn = mysqli_connect($serverName, $username, $password, $dbName);
 
