@@ -123,16 +123,28 @@ if ($_SESSION['level'] == 'admin') {
                 console.log(opsi);
                 let kesatuan = $('input[name="namakesatuan"]').val();
                 console.log(kesatuan);
+                let date = $('#reportrange span').html();
 
                 if (opsi == 'opsi_rodadua') {
-                    let date = $('#reportrange span').html();
+                    getDataRodaDua(date);
 
-                    getData(date);
-
-                    function getData(data) {
+                    function getDataRodaDua(data) {
                         $.ajax({
                             type: "POST",
                             url: "data-viewroda_duatiga.php",
+                            data: `date=${data}&kesatuan=${kesatuan}`,
+                            success: function(data) {
+                                $('#data-body').html(data);
+                            }
+                        })
+                    }
+                } else if (opsi == 'opsi_rodaempat') {
+                    getDataRodaEmpat(date);
+
+                    function getDataRodaEmpat(data) {
+                        $.ajax({
+                            type: "POST",
+                            url: "data-viewroda_empat.php",
                             data: `date=${data}&kesatuan=${kesatuan}`,
                             success: function(data) {
                                 $('#data-body').html(data);

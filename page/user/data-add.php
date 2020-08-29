@@ -77,6 +77,27 @@ if ($_SESSION['level'] == 'admin') {
                                                         </select>
                                                     </div>
                                                 </div>
+                                                <div id="rodaempat">
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="jenisrodaempat" class=" form-control-label">Jenis Roda Empat</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <select name="jenisrodaempat" id="jenisrodaempat" class="form-control">
+                                                                <option value="Bus">Bus</option>
+                                                                <option value="Truck">Truck</option>
+                                                                <option value="Pick Up">Pick Up</option>
+                                                                <option value="Mini Bus">Mini Bus</option>
+                                                                <option value="Jeep">Jeep</option>
+                                                                <option value="Sedan">Sedan</option>
+                                                                <option value="MKL/Mobil Penumpang">MKL/ Mobil Penumpang</option>
+                                                                <option value="Metro Mini">Metro Mini</option>
+                                                                <option value="Taksi">Taksi</option>
+                                                                <option value="Ransus">Ransus</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="row form-actions form-group mt-4">
                                                     <div class="col-2">
                                                         <button type="button" class="btn btn-success btn-sm button" id="cekdata">Cek Data</button>
@@ -98,9 +119,18 @@ if ($_SESSION['level'] == 'admin') {
             </div>
         </div>
         <script>
+            let tampilData = $('#rodaempat').hide();
+            $('#jeniskendaraan').change(function() {
+                let jeniskendaraan = $('#jeniskendaraan').val();
+                if (jeniskendaraan == 'rodaempat') {
+                    tampilData.show();
+                } else {
+                    tampilData.hide();
+                }
+            })
             $('#cekdata').click(function() {
                 let jeniskendaraan = $('#jeniskendaraan').val();
-
+                let jeniskendaraanrodaempat = $('#jenisrodaempat').val();
                 let kesatuan = $('input[name="namakesatuan"]').val();
                 console.log(kesatuan);
 
@@ -128,6 +158,30 @@ if ($_SESSION['level'] == 'admin') {
                             }
                         })
                     }
+                } else if (jeniskendaraan == 'rodaempat') {
+                    let date = $('#date').val();
+                    let golusia = $('#golonganusia').val();
+
+                    const data = `date=${date}&golusia=${golusia}&jeniskendaraan=${jeniskendaraanrodaempat}&kesatuan=${kesatuan}`;
+
+                    if (date == '') {
+                        alert('lengkapi data');
+                        $('#date').focus();
+                    } else {
+                        getDataRodaEmpat(data);
+                    }
+
+                    function getDataRodaEmpat(data) {
+                        $.ajax({
+                            type: "POST",
+                            url: "../../model/user/function_getdatarodaempat.php",
+                            data: data,
+                            success: function(data) {
+                                $('#data-body').html(data);
+                            }
+                        })
+                    }
+
                 }
 
             })
