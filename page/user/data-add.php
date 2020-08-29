@@ -86,12 +86,12 @@ if ($_SESSION['level'] == 'admin') {
                                                             <select name="jenisrodaempat" id="jenisrodaempat" class="form-control">
                                                                 <option value="Bus">Bus</option>
                                                                 <option value="Truck">Truck</option>
-                                                                <option value="Pick Up">Pick Up</option>
-                                                                <option value="Mini Bus">Mini Bus</option>
+                                                                <option value="Pick_Up">Pick Up</option>
+                                                                <option value="Mini_Bus">Mini Bus</option>
                                                                 <option value="Jeep">Jeep</option>
                                                                 <option value="Sedan">Sedan</option>
-                                                                <option value="MKL/Mobil Penumpang">MKL/ Mobil Penumpang</option>
-                                                                <option value="Metro Mini">Metro Mini</option>
+                                                                <option value="Mobil_Penumpang">MKL/ Mobil Penumpang</option>
+                                                                <option value="Metro_Mini">Metro Mini</option>
                                                                 <option value="Taksi">Taksi</option>
                                                                 <option value="Ransus">Ransus</option>
                                                             </select>
