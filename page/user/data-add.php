@@ -119,9 +119,22 @@ if ($_SESSION['level'] == 'admin') {
             </div>
         </div>
         <script>
+            $('#date').click(function() {
+                $('#data-body').html("");
+            });
+
+            $('#golonganusia').change(function() {
+                $('#data-body').html("");
+            });
+
+            $('#jenisrodaempat').change(function() {
+                $('#data-body').html("");
+            })
+
             let tampilData = $('#rodaempat').hide();
             $('#jeniskendaraan').change(function() {
                 let jeniskendaraan = $('#jeniskendaraan').val();
+                $('#data-body').html("");
                 if (jeniskendaraan == 'rodaempat') {
                     tampilData.show();
                 } else {

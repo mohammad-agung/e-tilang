@@ -118,6 +118,14 @@ if ($_SESSION['level'] == 'admin') {
 
             });
 
+            $('#reportrange span').click(function() {
+                $('#data-body').html("");
+            });
+
+            $('#datapelanggaran').change(function() {
+                $('#data-body').html("");
+            })
+
             $('#viewdata').click(function() {
                 let opsi = $('select[name="datapelanggaran"]').val();
                 console.log(opsi);
@@ -158,6 +166,32 @@ if ($_SESSION['level'] == 'admin') {
                         $.ajax({
                             type: "POST",
                             url: "data-viewjenis_kendaraan.php",
+                            data: `date=${data}&kesatuan=${kesatuan}`,
+                            success: function(data) {
+                                $('#data-body').html(data);
+                            }
+                        })
+                    }
+                } else if (opsi == 'opsi_golonganusia') {
+                    getDataGolonganUsia(date);
+
+                    function getDataGolonganUsia(data) {
+                        $.ajax({
+                            type: "POST",
+                            url: "data-viewgolongan_usia.php",
+                            data: `date=${data}&kesatuan=${kesatuan}`,
+                            success: function(data) {
+                                $('#data-body').html(data);
+                            }
+                        })
+                    }
+                } else if (opsi == 'opsi_semuadata') {
+                    getDataAllData(date);
+
+                    function getDataAllData(data) {
+                        $.ajax({
+                            type: "POST",
+                            url: "data-viewall_data.php",
                             data: `date=${data}&kesatuan=${kesatuan}`,
                             success: function(data) {
                                 $('#data-body').html(data);

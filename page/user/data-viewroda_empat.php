@@ -14,7 +14,7 @@ include '../../model/data/datarodaempat.php';
                         <th rowspan="2">#</th>
                         <th rowspan="2">Nama Kesatuan</th>
                         <th rowspan="2">Jumlah Pelanggaran</th>
-                        <th colspan="10" style="text-align: center;">Jenis Pelanggaran Yang Di Lakukan</th>
+                        <th colspan="9" style="text-align: center;">Jenis Pelanggaran Yang Di Lakukan</th>
                     </tr>
                     <tr>
                         <th>Kecepatan</th>
