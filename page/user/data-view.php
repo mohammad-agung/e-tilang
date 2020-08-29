@@ -151,6 +151,19 @@ if ($_SESSION['level'] == 'admin') {
                             }
                         })
                     }
+                } else if (opsi == 'opsi_jeniskendaraan') {
+                    getDataJenisKendaraan(date);
+
+                    function getDataJenisKendaraan(data) {
+                        $.ajax({
+                            type: "POST",
+                            url: "data-viewjenis_kendaraan.php",
+                            data: `date=${data}&kesatuan=${kesatuan}`,
+                            success: function(data) {
+                                $('#data-body').html(data);
+                            }
+                        })
+                    }
                 } else {
                     alert('lengkapi data');
                     $('#datapelanggaran').focus();
