@@ -101,11 +101,14 @@ if ($_SESSION['level'] == 'admin') {
             $('#cekdata').click(function() {
                 let jeniskendaraan = $('#jeniskendaraan').val();
 
+                let kesatuan = $('input[name="namakesatuan"]').val();
+                console.log(kesatuan);
+
                 if (jeniskendaraan == 'rodadua' || jeniskendaraan == 'rodatiga') {
                     let date = $('#date').val();
                     let golusia = $('#golonganusia').val();
 
-                    const data = `date=${date}&golusia=${golusia}&jenisroda=${jeniskendaraan}`;
+                    const data = `date=${date}&golusia=${golusia}&jenisroda=${jeniskendaraan}&kesatuan=${kesatuan}`;
 
                     if (date == '') {
                         alert('lengkapi data');

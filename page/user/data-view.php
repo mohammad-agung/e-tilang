@@ -121,6 +121,8 @@ if ($_SESSION['level'] == 'admin') {
             $('#viewdata').click(function() {
                 let opsi = $('select[name="datapelanggaran"]').val();
                 console.log(opsi);
+                let kesatuan = $('input[name="namakesatuan"]').val();
+                console.log(kesatuan);
 
                 if (opsi == 'opsi_rodadua') {
                     let date = $('#reportrange span').html();
@@ -131,7 +133,7 @@ if ($_SESSION['level'] == 'admin') {
                         $.ajax({
                             type: "POST",
                             url: "data-viewroda_duatiga.php",
-                            data: `date=${data}`,
+                            data: `date=${data}&kesatuan=${kesatuan}`,
                             success: function(data) {
                                 $('#data-body').html(data);
                             }

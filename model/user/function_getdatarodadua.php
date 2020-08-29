@@ -6,7 +6,8 @@ if (!empty($_POST['date']) && !empty($_POST['golusia']) && !empty($_POST['jenisr
     $date = $_POST['date'];
     $golonganusia = $_POST['golusia'];
     $jenisroda = $_POST['jenisroda'];
-    $query = mysqli_query($conn, "SELECT * FROM tbl_pelanggaran_r2r3 WHERE golongan_usia='$golonganusia' AND tanggal_input='$date' AND jenis_roda='$jenisroda'");
+    $namakesatuan = $_POST['kesatuan'];
+    $query = mysqli_query($conn, "SELECT * FROM tbl_pelanggaran_r2r3 WHERE golongan_usia='$golonganusia' AND tanggal='$date' AND jenis_roda='$jenisroda' AND nama_kesatuan='$namakesatuan'");
 
     $count = mysqli_num_rows($query);
 
