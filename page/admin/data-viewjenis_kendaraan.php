@@ -2,8 +2,7 @@
 
 session_start();
 $date = $_POST['date'];
-$kesatuan = $_POST['kesatuan'];
-include '../../model/data/datajeniskendaraan.php';
+include '../../model/data_admin/datajeniskendaraan.php';
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -31,29 +30,27 @@ include '../../model/data/datajeniskendaraan.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><?= $kesatuan; ?></td>
-                        <td>
-                            <?=
-                                $jumlah_total_kendaraan;
-                            ?>
-                        </td>
-                        <?php
-                        for ($i = 0; $i < count($arrKendaraan); $i++) { ?>
+                    <?php
+                    $number = 1;
+                    for ($index = 0; $index < count($kesatuan); $index++) {
+                    ?>
+                        <tr>
+                            <td><?= $number++; ?></td>
+                            <td><?= $kesatuan[$index] ?></td>
+                            <td><?= array_sum($total[$index]) ?></td>
+                            <?php for ($i = 0; $i < count($arrKendaraan); $i++) { ?>
+                                <td><?= $total[$index][$i]; ?></td>
+                            <?php } ?>
                             <td>
-                                <?= $total[$i]; ?>
+                                <?=
+                                    $jumlah_total[$index];
+                                ?>
                             </td>
-                        <?php } ?>
-                        <td>
-                            <?=
-                                $total_roda2dan3;
-                            ?>
-                        </td>
-                    </tr>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
-            <form action="../../model/cetak_data/cetak_data_jeniskendaraan.php" method="POST">
+            <form action="../../model/cetak_data_admin/cetak_data_jeniskendaraan.php" method="POST">
                 <input type="hidden" name="date" value="<?= $date; ?>">
                 <input type="hidden" name="kesatuan" value="<?= $kesatuan; ?>">
                 <div class="row form-actions form-group mt-4">

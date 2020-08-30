@@ -3,9 +3,8 @@
 session_start();
 include '../../controller/config.php';
 $date = $_POST['date'];
-$kesatuan = $_POST['kesatuan'];
 
-include '../../model/data/datarodadua.php';
+include '../../model/data_admin/datarodadua.php';
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -32,70 +31,70 @@ include '../../model/data/datarodadua.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><?= $kesatuan; ?></td>
-                        <td>
-                            <?=
-                                $jumlah_total;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $total_helm;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $total_kecepatan;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $total_kelengkapan;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $total_surat_surat;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $total_boncenganlebih;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $total_markarambu;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $total_melawanarus;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $total_lampuutama;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $total_gunakanhp;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $total_lain_lain;
-                            ?>
-                        </td>
-                    </tr>
+                    <?php
+                    $number = 1;
+                    for ($index = 0; $index < count($kesatuan); $index++) {
+                    ?>
+                        <tr>
+                            <td><?= $number++; ?></td>
+                            <td><?= $kesatuan[$index] ?></td>
+                            <td><?= $jumlah_total[$index]; ?></td>
+                            <td>
+                                <?=
+                                    $total_helm[$index];
+                                ?>
+                            </td>
+                            <td>
+                                <?=
+                                    $total_kecepatan[$index];
+                                ?>
+                            </td>
+                            <td>
+                                <?=
+                                    $total_kelengkapan[$index];
+                                ?>
+                            </td>
+                            <td>
+                                <?=
+                                    $total_surat_surat[$index];
+                                ?>
+                            </td>
+                            <td>
+                                <?=
+                                    $total_boncenganlebih[$index];
+                                ?>
+                            </td>
+                            <td>
+                                <?=
+                                    $total_markarambu[$index];
+                                ?>
+                            </td>
+                            <td>
+                                <?=
+                                    $total_melawanarus[$index];
+                                ?>
+                            </td>
+                            <td>
+                                <?=
+                                    $total_lampuutama[$index];
+                                ?>
+                            </td>
+                            <td>
+                                <?=
+                                    $total_gunakanhp[$index];
+                                ?>
+                            </td>
+                            <td>
+                                <?=
+                                    $total_lain_lain[$index];
+                                ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
-            <form action="../../model/cetak_data/cetak_data_rodaduatiga.php" method="POST">
+            <form action="../../model/cetak_data_admin/cetak_data_rodaduatiga.php" method="POST">
                 <input type="hidden" name="date" value="<?= $date; ?>">
-                <input type="hidden" name="kesatuan" value="<?= $kesatuan; ?>">
                 <div class="row form-actions form-group mt-4">
                     <div class="col-2">
                         <button type="submit" class="btn btn-success btn-sm button" name="cetak">Cetak Data</button></a>

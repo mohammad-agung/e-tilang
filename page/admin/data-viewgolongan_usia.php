@@ -31,13 +31,7 @@ include '../../model/data_admin/datagolonganusia.php';
                         <tr>
                             <td><?= $number++; ?></td>
                             <td><?= $kesatuan[$index] ?></td>
-                            <td>
-                                <?= $totalr2[$index][0] + $totalr4[$index][0] +
-                                    $totalr2[$index][1] + $totalr4[$index][1] +
-                                    $totalr2[$index][2] + $totalr4[$index][2] +
-                                    $totalr2[$index][3] + $totalr4[$index][3] +
-                                    $totalr2[$index][4] + $totalr4[$index][4];
-                                ?></td>
+                            <td><?= array_sum($totalr2[$index]) + array_sum($totalr4[$index]); ?></td>
                             <?php for ($i = 0; $i < count($arrGolonganusia); $i++) { ?>
                                 <td><?= $totalr2[$index][$i] + $totalr4[$index][$i]; ?></td>
                             <?php } ?>

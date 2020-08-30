@@ -1,13 +1,11 @@
 <?php
 session_start();
-include '../../controller/config.php';
 if (isset($_POST['cetak'])) {
     $date = $_POST['date'];
-    $kesatuan = $_POST['kesatuan'];
     header("Content-type: application/vnd-ms-excel");
-    header("Content-Disposition: attachment; filename=Data Pelanggaran $kesatuan Berdasarkan Roda Empat.xls");
+    header("Content-Disposition: attachment; filename=Data Pelanggaran Berdasarkan Roda Empat.xls");
 
-    include '../data/datarodaempat.php';
+    include '../data_admin/datarodaempat.php';
 ?>
     <table>
         <tbody>
@@ -54,60 +52,61 @@ if (isset($_POST['cetak'])) {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td><?= $kesatuan; ?></td>
-                <td>
-                    <?=
-                        $jumlah_total;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_kecepatan;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_kelengkapan;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_surat_surat;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_muatan;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_markarambu;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_melawanarus;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_sabukeselamatan;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_gunakanhp;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_lain_lain;
-                    ?>
-                </td>
-            </tr>
+            <?php
+            $number = 1;
+            for ($index = 0; $index < count($kesatuan); $index++) {
+            ?>
+                <tr>
+                    <td><?= $number++; ?></td>
+                    <td><?= $kesatuan[$index] ?></td>
+                    <td><?= $jumlah_total[$index]; ?></td>
+                    <td>
+                        <?=
+                            $total_kecepatan[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_kelengkapan[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_surat_surat[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_muatan[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_markarambu[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_melawanarus[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_sabukeselamatan[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_gunakanhp[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_lain_lain[$index];
+                        ?>
+                    </td>
+                </tr>
+            <?php } ?>
         </tbody>
     </table>
     <table>

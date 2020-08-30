@@ -1,12 +1,11 @@
 <?php
-
-include '../../controller/config.php';
+session_start();
 if (isset($_POST['cetak'])) {
-    header("Content-type: application/vnd-ms-excel");
-    header("Content-Disposition: attachment; filename=Data Pelanggaran Dari Golongan Usia.xls");
-
     $date = $_POST['date'];
-    include '../data_admin/datagolonganusia.php';
+    header("Content-type: application/vnd-ms-excel");
+    header("Content-Disposition: attachment; filename=Data Pelanggaran Berdasarkan Jenis Kendaraan.xls");
+
+    include '../data_admin/datajeniskendaraan.php';
 ?>
     <table>
         <tbody>
@@ -24,10 +23,10 @@ if (isset($_POST['cetak'])) {
     <table>
         <tbody>
             <tr>
-                <td colspan="8" style="text-align: center;"><strong>DATA PELANGGARAN DARI GOLONGAN USIA</strong></td>
+                <td colspan="14" style="text-align: center;"><strong>DATA PELANGGARAN DARI JENIS KENDARAAN</strong></td>
             </tr>
             <tr>
-                <td colspan="8" style="text-align: center;"><strong>DATA BULAN <?= $date; ?></strong></td>
+                <td colspan="14" style="text-align: center;"><strong>DATA BULAN <?= $date; ?></strong></td>
             </tr>
             <tr></tr>
         </tbody>
@@ -38,14 +37,20 @@ if (isset($_POST['cetak'])) {
                 <th rowspan="2">#</th>
                 <th rowspan="2">Nama Kesatuan</th>
                 <th rowspan="2">Jumlah Pelanggaran</th>
-                <th colspan="5" style="text-align: center;">Golongan Usia</th>
+                <th colspan="11" style="text-align: center;">Jenis Kendaran</th>
             </tr>
             <tr>
-                <th>Kurang Dari 17</th>
-                <th>17 sampai 25</th>
-                <th>26 sampai 45</th>
-                <th>46 sampai 65</th>
-                <th>Lebih dari 65</th>
+                <th>Bus</th>
+                <th>Truck</th>
+                <th>Pick Up</th>
+                <th>Mini Bus</th>
+                <th>JEEP</th>
+                <th>Sedan</th>
+                <th>MKL/Mobil Penumpang</th>
+                <th>Metro Mini</th>
+                <th>Taksi</th>
+                <th>Ransus</th>
+                <th>Roda 2 / 3</th>
             </tr>
         </thead>
         <tbody>
@@ -56,10 +61,15 @@ if (isset($_POST['cetak'])) {
                 <tr>
                     <td><?= $number++; ?></td>
                     <td><?= $kesatuan[$index] ?></td>
-                    <td><?= array_sum($totalr2[$index]) + array_sum($totalr4[$index]); ?></td>
-                    <?php for ($i = 0; $i < count($arrGolonganusia); $i++) { ?>
-                        <td><?= $totalr2[$index][$i] + $totalr4[$index][$i]; ?></td>
+                    <td><?= array_sum($total[$index]) ?></td>
+                    <?php for ($i = 0; $i < count($arrKendaraan); $i++) { ?>
+                        <td><?= $total[$index][$i]; ?></td>
                     <?php } ?>
+                    <td>
+                        <?=
+                            $jumlah_total[$index];
+                        ?>
+                    </td>
                 </tr>
             <?php } ?>
         </tbody>
@@ -73,6 +83,12 @@ if (isset($_POST['cetak'])) {
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td colspan="4">Palu, </td>
             </tr>
             <tr>
@@ -80,9 +96,21 @@ if (isset($_POST['cetak'])) {
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td colspan="4">a.n DIREKTUR LALU LINTAS POLDA SULTENG</td>
             </tr>
             <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -98,6 +126,12 @@ if (isset($_POST['cetak'])) {
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td></td>
@@ -108,8 +142,20 @@ if (isset($_POST['cetak'])) {
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -117,6 +163,12 @@ if (isset($_POST['cetak'])) {
                 <td colspan="4" style="border-bottom: 1px solid black;"></td>
             </tr>
             <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

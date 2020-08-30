@@ -1,13 +1,11 @@
 <?php
 session_start();
-include '../../controller/config.php';
 if (isset($_POST['cetak'])) {
     $date = $_POST['date'];
-    $kesatuan = $_POST['kesatuan'];
     header("Content-type: application/vnd-ms-excel");
-    header("Content-Disposition: attachment; filename=Data Pelanggaran $kesatuan Berdasarkan Roda Empat.xls");
+    header("Content-Disposition: attachment; filename=Data Pelanggaran Berdasarkan Roda Dua dan Tiga.xls");
 
-    include '../data/datarodaempat.php';
+    include '../data_admin/datarodadua.php';
 ?>
     <table>
         <tbody>
@@ -25,7 +23,7 @@ if (isset($_POST['cetak'])) {
     <table>
         <tbody>
             <tr>
-                <td colspan="13" style="text-align: center;"><strong>DATA PELANGGARAN DARI JENIS RODA EMPAT</strong></td>
+                <td colspan="13" style="text-align: center;"><strong>DATA PELANGGARAN DARI JENIS RODA DUA DAN TIGA</strong></td>
             </tr>
             <tr>
                 <td colspan="13" style="text-align: center;"><strong>DATA BULAN <?= $date; ?></strong></td>
@@ -39,75 +37,82 @@ if (isset($_POST['cetak'])) {
                 <th rowspan="2">#</th>
                 <th rowspan="2">Nama Kesatuan</th>
                 <th rowspan="2">Jumlah Pelanggaran</th>
-                <th colspan="9">Jenis Pelanggaran Yang Di Lakukan</th>
+                <th colspan="10">Jenis Pelanggaran Yang Di Lakukan</th>
             </tr>
             <tr>
+                <th>Helm</th>
                 <th>Kecepatan</th>
                 <th>Kelengkapan</th>
                 <th>Surat-Surat</th>
-                <th>Muatan</th>
+                <th>Boncengan Lebih Dari 1</th>
                 <th>Marka Rambu</th>
                 <th>Melawan Arus</th>
-                <th>Sabuk Keselamatan</th>
+                <th>Lampu Utama</th>
                 <th>Gunakan HP</th>
                 <th>Lain Lain</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td><?= $kesatuan; ?></td>
-                <td>
-                    <?=
-                        $jumlah_total;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_kecepatan;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_kelengkapan;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_surat_surat;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_muatan;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_markarambu;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_melawanarus;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_sabukeselamatan;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_gunakanhp;
-                    ?>
-                </td>
-                <td>
-                    <?=
-                        $total_lain_lain;
-                    ?>
-                </td>
-            </tr>
+            <?php
+            $number = 1;
+            for ($index = 0; $index < count($kesatuan); $index++) {
+            ?>
+                <tr>
+                    <td><?= $number++; ?></td>
+                    <td><?= $kesatuan[$index] ?></td>
+                    <td><?= $jumlah_total[$index]; ?></td>
+                    <td>
+                        <?=
+                            $total_helm[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_kecepatan[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_kelengkapan[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_surat_surat[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_boncenganlebih[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_markarambu[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_melawanarus[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_lampuutama[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_gunakanhp[$index];
+                        ?>
+                    </td>
+                    <td>
+                        <?=
+                            $total_lain_lain[$index];
+                        ?>
+                    </td>
+                </tr>
+            <?php } ?>
         </tbody>
     </table>
     <table>
@@ -115,6 +120,7 @@ if (isset($_POST['cetak'])) {
             <tr></tr>
             <tr></tr>
             <tr>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -134,9 +140,11 @@ if (isset($_POST['cetak'])) {
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td colspan="4">a.n DIREKTUR LALU LINTAS POLDA SULTENG</td>
             </tr>
             <tr>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -160,22 +168,25 @@ if (isset($_POST['cetak'])) {
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
                 <td></td>
             </tr>
             <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -187,6 +198,7 @@ if (isset($_POST['cetak'])) {
                 <td colspan="4" style="border-bottom: 1px solid black;"></td>
             </tr>
             <tr>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
