@@ -2,8 +2,7 @@
 
 session_start();
 $date = $_POST['date'];
-$kesatuan = $_POST['kesatuan'];
-include '../../model/data/datagolonganusia.php';
+include '../../model/data_admin/datagolonganusia.php';
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -25,22 +24,29 @@ include '../../model/data/datagolonganusia.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><?= $kesatuan; ?></td>
-                        <td><?= $jumlah_total_golonganusia ?></td>
-                        <?php
-                        for ($i = 0; $i < count($arrGolonganusia); $i++) { ?>
+                    <?php
+                    $number = 1;
+                    for ($index = 0; $index < count($kesatuan); $index++) {
+                    ?>
+                        <tr>
+                            <td><?= $number++; ?></td>
+                            <td><?= $kesatuan[$index] ?></td>
                             <td>
-                                <?= $total[$i] + $totalDua[$i]; ?>
-                            </td>
-                        <?php } ?>
-                    </tr>
+                                <?= $totalr2[$index][0] + $totalr4[$index][0] +
+                                    $totalr2[$index][1] + $totalr4[$index][1] +
+                                    $totalr2[$index][2] + $totalr4[$index][2] +
+                                    $totalr2[$index][3] + $totalr4[$index][3] +
+                                    $totalr2[$index][4] + $totalr4[$index][4];
+                                ?></td>
+                            <?php for ($i = 0; $i < count($arrGolonganusia); $i++) { ?>
+                                <td><?= $totalr2[$index][$i] + $totalr4[$index][$i]; ?></td>
+                            <?php } ?>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
-            <form action="../../model/cetak_data/cetak_data_golonganusia.php" method="POST">
+            <form action="../../model/cetak_data_admin/cetak_data_golonganusia.php" method="POST">
                 <input type="hidden" name="date" value="<?= $date; ?>">
-                <input type="hidden" name="kesatuan" value="<?= $kesatuan; ?>">
                 <div class="row form-actions form-group mt-4">
                     <div class="col-2">
                         <button type="submit" class="btn btn-success btn-sm button" name="cetak">Cetak Data</button></a>

@@ -2,53 +2,10 @@
 
 include '../../controller/config.php';
 
-$kesatuan = array();
 $queryKesatuan = mysqli_query($conn, "SELECT * FROM tbl_kesatuan WHERE status=1 ORDER BY nama_kesatuan");
 while ($rowKesatuan = mysqli_fetch_array($queryKesatuan)) {
     $kesatuan[] = $rowKesatuan['nama_kesatuan'];
 }
-
-$total = array();
-$totalDua = array();
-$kecepatantilang  = array();
-$kecepatanteguran =  array();
-$kelengkapantilang =  array();
-$kelengkapanteguran = array();
-$surat_surattilang =  array();
-$surat_suratteguran =  array();
-$muatantilang = array();
-$muatanteguran = array();
-$markarambutilang = array();
-$markarambuteguran =  array();
-$melawanarustilang =  array();
-$melawanarusteguran =  array();
-$sabukeselamatantilang =  array();
-$sabukeselamatanteguran =  array();
-$gunakanhptilang = array();
-$gunakanhpteguran = array();
-$lain_laintilang = array();
-$lain_lainteguran = array();
-$helmteguran = array();
-$helmtilang = array();
-$kecepatantilangdua  = array();
-$kecepatantegurandua = array();
-$kelengkapantilangdua =  array();
-$kelengkapantegurandua =  array();
-$surat_surattilangdua =  array();
-$surat_surattegurandua = array();
-$boncenganlebihtilangdua = array();
-$boncenganlebihtegurandua = array();
-$markarambutilangdua =  array();
-$markarambutegurandua = array();
-$melawanarustilangdua = array();
-$melawanarustegurandua = array();
-$lampuutamatilangdua = array();
-$lampuutamategurandua = array();
-$gunakanhptilangdua = array();
-$gunakanhptegurandua = array();
-$lain_laintilangdua = array();
-$lain_laintegurandua = array();
-$jumlah_total_pelanggaran = array();
 
 for ($indexsatu = 0; $indexsatu < count($kesatuan); $indexsatu++) {
     $query =  mysqli_query($conn, "SELECT SUM(kecepatan_tilang) AS kecepatantilang, SUM(kecepatan_teguran) AS kecepatanteguran,SUM(kelengkapan_tilang) AS kelengkapantilang, SUM(kelengkapan_teguran) AS kelengkapanteguran,SUM(surat_surat_tilang) AS surat_surattilang, SUM(surat_surat_teguran) AS surat_suratteguran,SUM(muatan_tilang) AS muatantilang, SUM(muatan_teguran) AS muatanteguran,SUM(markarambu_tilang) AS markarambutilang, SUM(markarambu_teguran) AS markarambuteguran,SUM(melawanarus_tilang) AS melawanarustilang, SUM(melawanarus_teguran) AS melawanarusteguran,SUM(sabukeselamatan_tilang) AS sabukeselamatantilang, SUM(sabukeselamatan_teguran) AS sabukeselamatanteguran,SUM(gunakanhp_tilang) AS gunakanhptilang, SUM(gunakanhp_teguran) AS gunakanhpteguran,SUM(lain_lain_tilang) AS lain_laintilang, SUM(lain_lain_teguran) AS lain_lainteguran FROM tbl_pelanggaran_r4 WHERE (tanggal BETWEEN '$date') AND nama_kesatuan='$kesatuan[$indexsatu]' ORDER BY tanggal DESC");
