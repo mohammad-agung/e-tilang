@@ -90,7 +90,7 @@ if ($_SESSION['level'] == 'user') {
                                                             <label for="namauser" class=" form-control-label">Nama User</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <input type="text" id="namauser" name="namaUser" placeholder="nama user" class="form-control" value="<?= htmlentities($row['nama_user']); ?>">
+                                                            <input type="text" id="namauser" name="namaUser" placeholder="nama user" class="form-control" value="<?= htmlentities($row['nama_user']); ?>" required>
                                                         </div>
                                                     </div>
                                                     <div class="row form-group">
@@ -98,7 +98,7 @@ if ($_SESSION['level'] == 'user') {
                                                             <label for="username" class=" form-control-label">Username</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <input type="text" id="username" name="username" placeholder="username" class="form-control" value="<?= htmlentities($row['username']); ?>" onBlur="checkAvailability()">
+                                                            <input type="text" id="username" name="username" placeholder="username" class="form-control" value="<?= htmlentities($row['username']); ?>" onBlur="checkAvailability()" required>
                                                             <div id="user-availability-status"></div>
                                                         </div>
                                                     </div>

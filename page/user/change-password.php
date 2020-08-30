@@ -63,7 +63,7 @@ if ($_SESSION['level'] == 'admin') {
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-user"></i>
                                                         </div>
-                                                        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<?= $_SESSION['login']; ?>">
+                                                        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<?= $_SESSION['login']; ?>" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -71,7 +71,7 @@ if ($_SESSION['level'] == 'admin') {
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-user"></i>
                                                         </div>
-                                                        <input type="text" id="username" name="username" placeholder="Username" class="form-control" value="<?= $_SESSION['session']; ?>">
+                                                        <input type="text" id="username" name="username" placeholder="Username" class="form-control" value="<?= $_SESSION['session']; ?>" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -79,7 +79,7 @@ if ($_SESSION['level'] == 'admin') {
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-asterisk"></i>
                                                         </div>
-                                                        <input type="password" id="password" name="password" placeholder="Old Password" class="form-control">
+                                                        <input type="password" id="password" name="password" placeholder="Old Password" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -87,7 +87,7 @@ if ($_SESSION['level'] == 'admin') {
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-asterisk"></i>
                                                         </div>
-                                                        <input type="password" id="newpassword" name="newpassword" placeholder="New Password" class="form-control">
+                                                        <input type="password" id="newpassword" name="newpassword" placeholder="New Password" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -95,7 +95,7 @@ if ($_SESSION['level'] == 'admin') {
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-asterisk"></i>
                                                         </div>
-                                                        <input type="password" id="retypepassword" name="retypepassword" placeholder="Retype Password" class="form-control">
+                                                        <input type="password" id="retypepassword" name="retypepassword" placeholder="Retype Password" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-actions form-group">

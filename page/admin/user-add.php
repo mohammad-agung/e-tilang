@@ -82,7 +82,7 @@ if ($_SESSION['level'] == 'user') {
                                                         <label for="namauser" class=" form-control-label">Nama User</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="text" id="namauser" name="namaUser" placeholder="nama user" class="form-control">
+                                                        <input type="text" id="namauser" name="namaUser" placeholder="nama user" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
@@ -90,7 +90,7 @@ if ($_SESSION['level'] == 'user') {
                                                         <label for="username" class=" form-control-label">Username</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="text" id="username" name="username" placeholder="username" class="form-control">
+                                                        <input type="text" id="username" name="username" placeholder="username" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
@@ -98,15 +98,15 @@ if ($_SESSION['level'] == 'user') {
                                                         <label for="password" class=" form-control-label">Password</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="text" id="password" name="password" placeholder="password" class="form-control">
+                                                        <input type="text" id="password" name="password" placeholder="password" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="retypepassword" class=" form-control-label">Retype Password</label>
+                                                        <label for="retypepassword" class="form-control-label">Retype Password</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="text" id="retypepassword" name="retypePassword" placeholder="Retype Password" class="form-control">
+                                                        <input type="text" id="retypepassword" name="retypePassword" placeholder="Retype Password" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
@@ -114,7 +114,7 @@ if ($_SESSION['level'] == 'user') {
                                                         <label for="kesatuan" class=" form-control-label">Kesatuan</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <select name="kesatuan" id="kesatuan" class="form-control">
+                                                        <select name="kesatuan" id="kesatuan" class="form-control" required>
                                                             <option value="0">Please select</option>
                                                             <?php
                                                             $query = mysqli_query($conn, "SELECT * from tbl_kesatuan where status=1");

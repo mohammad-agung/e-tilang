@@ -63,7 +63,7 @@ if ($_SESSION['level'] == 'user') {
                                                         <label for="text-input" class=" form-control-label">Nama Kesatuan</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="text" id="text-input" name="namaKesatuan" placeholder="nama kesatuan" class="form-control">
+                                                        <input type="text" id="text-input" name="namaKesatuan" placeholder="nama kesatuan" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
@@ -71,7 +71,7 @@ if ($_SESSION['level'] == 'user') {
                                                         <label for="textarea-input" class=" form-control-label">Alamat</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <textarea name="alamatKesatuan" id="textarea-input" rows="5" placeholder="alamat kesatuan" class="form-control"></textarea>
+                                                        <textarea name="alamatKesatuan" id="textarea-input" rows="5" placeholder="alamat kesatuan" class="form-control" required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">

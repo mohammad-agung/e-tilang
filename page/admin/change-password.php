@@ -63,7 +63,7 @@ if ($_SESSION['level'] == 'user') {
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-user"></i>
                                                         </div>
-                                                        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<?= $_SESSION['login']; ?>">
+                                                        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<?= $_SESSION['login']; ?>" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -71,7 +71,7 @@ if ($_SESSION['level'] == 'user') {
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-user"></i>
                                                         </div>
-                                                        <input type="text" id="username" name="username" placeholder="Username" class="form-control" value="<?= $_SESSION['session']; ?>">
+                                                        <input type="text" id="username" name="username" placeholder="Username" class="form-control" value="<?= $_SESSION['session']; ?>" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
