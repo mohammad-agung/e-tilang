@@ -37,7 +37,7 @@ include '../../model/data_admin/datajeniskendaraan.php';
                         <tr>
                             <td><?= $number++; ?></td>
                             <td><?= $kesatuan[$index] ?></td>
-                            <td><?= array_sum($total[$index]) ?></td>
+                            <td><?= array_sum($total[$index]) + $jumlah_total[$index]; ?></td>
                             <?php for ($i = 0; $i < count($arrKendaraan); $i++) { ?>
                                 <td><?= $total[$index][$i]; ?></td>
                             <?php } ?>
