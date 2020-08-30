@@ -70,6 +70,22 @@ if ($_SESSION['level'] == 'user') {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="kesatuan" class=" form-control-label">Kesatuan</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <select name="kesatuan" id="kesatuan" class="form-control">
+                                                            <option value="DITLANTAS POLDA Sulteng">DITLANTAS POLDA Sulteng</option>
+                                                            <?php
+                                                            $query = mysqli_query($conn, "SELECT * from tbl_kesatuan where status=1");
+                                                            while ($row = mysqli_fetch_array($query)) {
+                                                            ?>
+                                                                <option value="<?= htmlentities($row['nama_kesatuan']); ?>"><?= htmlentities($row['nama_kesatuan']); ?></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                                 <hr>
                                                 <div class="row form-actions form-group mt-4">
                                                     <div class="col-2">
@@ -123,82 +139,162 @@ if ($_SESSION['level'] == 'user') {
 
             $('#datapelanggaran').change(function() {
                 $('#data-body').html("");
-            })
+            });
+
+            $('#kesatuan').change(function() {
+                $('#data-body').html("");
+            });
 
             $('#viewdata').click(function() {
                 let opsi = $('select[name="datapelanggaran"]').val();
                 console.log(opsi);
                 let date = $('#reportrange span').html();
+                let kesatuan = $('#kesatuan').val();
 
-                if (opsi == 'opsi_rodadua') {
-                    getDataRodaDua(date);
+                console.log(kesatuan);
 
-                    function getDataRodaDua(data) {
-                        $.ajax({
-                            type: "POST",
-                            url: "data-viewroda_duatiga.php",
-                            data: `date=${data}`,
-                            success: function(data) {
-                                $('#data-body').html(data);
-                            }
-                        })
-                    }
-                } else if (opsi == 'opsi_rodaempat') {
-                    getDataRodaEmpat(date);
+                if (kesatuan == 'DITLANTAS POLDA Sulteng') {
+                    if (opsi == 'opsi_rodadua') {
+                        getDataRodaDua(date);
 
-                    function getDataRodaEmpat(data) {
-                        $.ajax({
-                            type: "POST",
-                            url: "data-viewroda_empat.php",
-                            data: `date=${data}`,
-                            success: function(data) {
-                                $('#data-body').html(data);
-                            }
-                        })
-                    }
-                } else if (opsi == 'opsi_jeniskendaraan') {
-                    getDataJenisKendaraan(date);
+                        function getDataRodaDua(data) {
+                            $.ajax({
+                                type: "POST",
+                                url: "data-viewroda_duatiga.php",
+                                data: `date=${data}`,
+                                success: function(data) {
+                                    $('#data-body').html(data);
+                                }
+                            })
+                        }
+                    } else if (opsi == 'opsi_rodaempat') {
+                        getDataRodaEmpat(date);
 
-                    function getDataJenisKendaraan(data) {
-                        $.ajax({
-                            type: "POST",
-                            url: "data-viewjenis_kendaraan.php",
-                            data: `date=${data}`,
-                            success: function(data) {
-                                $('#data-body').html(data);
-                            }
-                        })
-                    }
-                } else if (opsi == 'opsi_golonganusia') {
-                    getDataGolonganUsia(date);
+                        function getDataRodaEmpat(data) {
+                            $.ajax({
+                                type: "POST",
+                                url: "data-viewroda_empat.php",
+                                data: `date=${data}`,
+                                success: function(data) {
+                                    $('#data-body').html(data);
+                                }
+                            })
+                        }
+                    } else if (opsi == 'opsi_jeniskendaraan') {
+                        getDataJenisKendaraan(date);
 
-                    function getDataGolonganUsia(data) {
-                        $.ajax({
-                            type: "POST",
-                            url: "data-viewgolongan_usia.php",
-                            data: `date=${data}`,
-                            success: function(data) {
-                                $('#data-body').html(data);
-                            }
-                        })
-                    }
-                } else if (opsi == 'opsi_semuadata') {
-                    getDataAllData(date);
+                        function getDataJenisKendaraan(data) {
+                            $.ajax({
+                                type: "POST",
+                                url: "data-viewjenis_kendaraan.php",
+                                data: `date=${data}`,
+                                success: function(data) {
+                                    $('#data-body').html(data);
+                                }
+                            })
+                        }
+                    } else if (opsi == 'opsi_golonganusia') {
+                        getDataGolonganUsia(date);
 
-                    function getDataAllData(data) {
-                        $.ajax({
-                            type: "POST",
-                            url: "data-viewall_data.php",
-                            data: `date=${data}`,
-                            success: function(data) {
-                                $('#data-body').html(data);
-                            }
-                        })
+                        function getDataGolonganUsia(data) {
+                            $.ajax({
+                                type: "POST",
+                                url: "data-viewgolongan_usia.php",
+                                data: `date=${data}`,
+                                success: function(data) {
+                                    $('#data-body').html(data);
+                                }
+                            })
+                        }
+                    } else if (opsi == 'opsi_semuadata') {
+                        getDataAllData(date);
+
+                        function getDataAllData(data) {
+                            $.ajax({
+                                type: "POST",
+                                url: "data-viewall_data.php",
+                                data: `date=${data}`,
+                                success: function(data) {
+                                    $('#data-body').html(data);
+                                }
+                            })
+                        }
+                    } else {
+                        alert('lengkapi data');
+                        $('#datapelanggaran').focus();
                     }
                 } else {
-                    alert('lengkapi data');
-                    $('#datapelanggaran').focus();
+                    if (opsi == 'opsi_rodadua') {
+                        getDataRodaDuaUser(date);
+
+                        function getDataRodaDuaUser(data) {
+                            $.ajax({
+                                type: "POST",
+                                url: "../user/data-viewroda_duatiga.php",
+                                data: `date=${data}&kesatuan=${kesatuan}`,
+                                success: function(data) {
+                                    $('#data-body').html(data);
+                                }
+                            })
+                        }
+                    } else if (opsi == 'opsi_rodaempat') {
+                        getDataRodaEmpatUser(date);
+
+                        function getDataRodaEmpatUser(data) {
+                            $.ajax({
+                                type: "POST",
+                                url: "../user/data-viewroda_empat.php",
+                                data: `date=${data}&kesatuan=${kesatuan}`,
+                                success: function(data) {
+                                    $('#data-body').html(data);
+                                }
+                            })
+                        }
+                    } else if (opsi == 'opsi_jeniskendaraan') {
+                        getDataJenisKendaraanUser(date);
+
+                        function getDataJenisKendaraanUser(data) {
+                            $.ajax({
+                                type: "POST",
+                                url: "../user/data-viewjenis_kendaraan.php",
+                                data: `date=${data}&kesatuan=${kesatuan}`,
+                                success: function(data) {
+                                    $('#data-body').html(data);
+                                }
+                            })
+                        }
+                    } else if (opsi == 'opsi_golonganusia') {
+                        getDataGolonganUsiaUser(date);
+
+                        function getDataGolonganUsiaUser(data) {
+                            $.ajax({
+                                type: "POST",
+                                url: "../user/data-viewgolongan_usia.php",
+                                data: `date=${data}&kesatuan=${kesatuan}`,
+                                success: function(data) {
+                                    $('#data-body').html(data);
+                                }
+                            })
+                        }
+                    } else if (opsi == 'opsi_semuadata') {
+                        getDataAllDataUser(date);
+
+                        function getDataAllDataUser(data) {
+                            $.ajax({
+                                type: "POST",
+                                url: "../user/data-viewall_data.php",
+                                data: `date=${data}&kesatuan=${kesatuan}`,
+                                success: function(data) {
+                                    $('#data-body').html(data);
+                                }
+                            })
+                        }
+                    } else {
+                        alert('lengkapi data');
+                        $('#datapelanggaran').focus();
+                    }
                 }
+
             })
         </script>
     <?php

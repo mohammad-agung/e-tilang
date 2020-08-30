@@ -28,7 +28,7 @@
                             <a href="data-view">Laporan Tabel</a>
                         </li>
                         <li>
-                            <a href="#">Laporan Grafik</a>
+                            <a href="data-grafik">Laporan Grafik</a>
                         </li>
                     </ul>
                 </li>
