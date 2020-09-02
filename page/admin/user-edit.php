@@ -114,7 +114,7 @@ if ($_SESSION['level'] == 'user') {
                                                                     $query_kesatuan = mysqli_query($conn, "SELECT * from tbl_kesatuan where status=1");
                                                                     while ($row_kesatuan = mysqli_fetch_array($query_kesatuan)) {
                                                                     ?>
-                                                                        <option value="<?= htmlentities($row_kesatuan['nama_kesatuan']); ?>"><?= htmlentities($row_kesatuan['nama_kesatuan']); ?></option>
+                                                                        <option value="<?= htmlentities($row_kesatuan['id_kesatuan']); ?>"><?= htmlentities($row_kesatuan['nama_kesatuan']); ?></option>
                                                                     <?php } ?>
                                                                 </select>
                                                             </div>

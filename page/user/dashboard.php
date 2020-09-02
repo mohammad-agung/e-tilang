@@ -112,7 +112,7 @@ if ($_SESSION['level'] == 'admin') {
                                                 </div>
                                                 <div class="text">
                                                     <?php
-                                                    $query_user = mysqli_query($conn, "SELECT * from tbl_user where level='user' AND nama_kesatuan='$kesatuan'");
+                                                    $query_user = mysqli_query($conn, "SELECT tbl_user.level,tbl_user.id_kesatuan,tbl_kesatuan.nama_kesatuan from tbl_user INNER JOIN tbl_kesatuan ON tbl_user.id_kesatuan = tbl_kesatuan.id_kesatuan WHERE tbl_user.level = 'user' AND tbl_kesatuan.nama_kesatuan = '$kesatuan'");
                                                     $count_user = mysqli_num_rows($query_user);
                                                     ?>
                                                     <h2><?= htmlentities($count_user); ?></h2>

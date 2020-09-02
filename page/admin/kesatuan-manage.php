@@ -68,7 +68,7 @@ if ($_SESSION['level'] == 'user') {
                                                             <td><?= htmlentities($row['alamat']); ?></td>
                                                             <td>
                                                                 <?php
-                                                                $query_user = mysqli_query($conn, "SELECT * from tbl_user where nama_kesatuan='$nama_kesatuan'");
+                                                                $query_user = mysqli_query($conn, "SELECT * from tbl_user INNER JOIN tbl_kesatuan ON tbl_user.id_kesatuan = tbl_kesatuan.id_kesatuan where tbl_kesatuan.nama_kesatuan='$nama_kesatuan'");
                                                                 $row_count_user = mysqli_num_rows($query_user);
                                                                 echo $row_count_user;
                                                                 ?>

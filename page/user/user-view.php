@@ -47,7 +47,7 @@ if ($_SESSION['level'] == 'admin') {
                                             <tbody>
                                                 <?php
                                                 $kesatuan = $_SESSION['kesatuan'];
-                                                $query = mysqli_query($conn, "SELECT * from tbl_user where nama_kesatuan='$kesatuan' ORDER BY status");
+                                                $query = mysqli_query($conn, "SELECT tbl_user.nama_user,tbl_user.username,tbl_user.id_kesatuan,tbl_user.status,tbl_kesatuan.nama_kesatuan from tbl_user INNER JOIN tbl_kesatuan ON tbl_user.id_kesatuan =  tbl_kesatuan.id_kesatuan where tbl_kesatuan.nama_kesatuan='$kesatuan' ORDER BY tbl_user.status");
                                                 $row_count = mysqli_num_rows($query);
                                                 $number = 1;
                                                 if ($row_count == 0) {

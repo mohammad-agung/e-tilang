@@ -120,8 +120,9 @@ if ($_SESSION['level'] == 'user') {
                                                             $query = mysqli_query($conn, "SELECT * from tbl_kesatuan where status=1");
                                                             while ($row = mysqli_fetch_array($query)) {
                                                             ?>
-                                                                <option value="<?= htmlentities($row['nama_kesatuan']); ?>"><?= htmlentities($row['nama_kesatuan']); ?></option>
-                                                            <?php } ?>
+                                                                <option value="<?= htmlentities($row['id_kesatuan']); ?>"><?= htmlentities($row['nama_kesatuan']); ?></option>
+                                                            <?php
+                                                            } ?>
                                                         </select>
                                                     </div>
                                                 </div>

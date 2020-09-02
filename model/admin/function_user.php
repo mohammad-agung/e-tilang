@@ -57,7 +57,7 @@ function ubah($data)
     $query = "UPDATE tbl_user SET
                         nama_user = '$nama_user',
                         username = '$username',
-                        nama_kesatuan = '$kesatuan',
+                        id_kesatuan = '$kesatuan',
                         level = '$level'
                     WHERE id_user = $id
                     ";

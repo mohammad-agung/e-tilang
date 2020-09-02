@@ -7,7 +7,7 @@ if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = mysqli_query($conn, "SELECT nama_user,password,username,status,level,nama_kesatuan FROM tbl_user WHERE username='$username'");
+    $sql = mysqli_query($conn, "SELECT tbl_user.nama_user,tbl_user.password,tbl_user.username,tbl_user.status,tbl_user.level,tbl_kesatuan.nama_kesatuan FROM tbl_user INNER JOIN tbl_kesatuan ON tbl_user.id_kesatuan = tbl_kesatuan.id_kesatuan WHERE tbl_user.username='$username'");
 
     $num = mysqli_fetch_array($sql);
 

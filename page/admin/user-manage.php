@@ -47,7 +47,7 @@ if ($_SESSION['level'] == 'user') {
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $queryUser = mysqli_query($conn, "SELECT * from tbl_user where level='user' ORDER BY nama_kesatuan");
+                                                $queryUser = mysqli_query($conn, "SELECT tbl_user.id_user,tbl_user.nama_user,tbl_user.username,tbl_user.id_kesatuan,tbl_user.status,tbl_kesatuan.nama_kesatuan from tbl_user INNER JOIN tbl_kesatuan ON tbl_user.id_kesatuan=tbl_kesatuan.id_kesatuan where tbl_user.level='user' ORDER BY tbl_user.id_kesatuan");
                                                 $row_count_user = mysqli_num_rows($queryUser);
                                                 $numberUser = 1;
                                                 if ($row_count_user == 0) {
